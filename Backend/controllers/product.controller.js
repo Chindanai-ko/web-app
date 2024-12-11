@@ -7,8 +7,8 @@ export const getProducts = async (req, res) => {
         const products = await Product.find({});
         res.status(200).json({ success: true, data: products })
     } catch (error) {
-        console.log("error in fetching product:", error.massage);
-        res.status(500).json({ success: false, massage: "Server Error" });
+        console.log("error in fetching product:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
     }
 };
 
@@ -26,8 +26,8 @@ export const getFeaturedProducts = async (req, res) => {
         await redis.set("featuredProducts", JSON.stringify(featuredProducts));
         res.json(featuredProducts);
     } catch (error) {
-        console.log("error in fetching featured product:", error.massage);
-        res.status(500).json({ massage: "Server Error", error: error.massage });
+        console.log("error in fetching featured product:", error.message);
+        res.status(500).json({ message: "Server Error", error: error.message });
     }
 };
 
